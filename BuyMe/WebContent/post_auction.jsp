@@ -137,6 +137,7 @@
 			System.out.println(date + "T" + time);  
 			%>
 			<input class="form-control" required type="datetime-local" <% out.print("min= \"" + date + "T" + time + "\""); %> name="auction-close">
+			<small>MM/DD/YYY, HH:MM AM/PM</small>
 		</div>
 		<div class="form-group">
 			<label for="auction-reserve">Reserve:</label>

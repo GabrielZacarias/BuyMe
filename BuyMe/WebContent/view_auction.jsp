@@ -86,7 +86,7 @@ try {
 				<div class="form-group">
 					<input type="text" class="form-control" id="bid-input" name="bid-amount" aria-describedby="bid-help" required>
 
-					<small id="bid-amount" class="form-text text-muted">Enter <span><% out.print(itemRes.getDouble("curr_max") == 0 ? itemRes.getDouble("start_price") : Utils.format((itemRes.getDouble("curr_max") + itemRes.getDouble("increment")))); %></span> or greater</small>
+					<small id="bid-amount" class="form-text text-muted">Enter <span><% out.print(itemRes.getDouble("curr_max") == 0 ? Utils.format(itemRes.getDouble("start_price")) : Utils.format((itemRes.getDouble("curr_max") + itemRes.getDouble("increment")))); %></span> or greater</small>
 
 				</div>
 				
@@ -148,18 +148,7 @@ try {
 				
 				ResultSet sub = stmt.executeQuery("SELECT subcategory_of FROM category WHERE name = \"" + category + "\"");
 				sub.next();
-				
-				// If category is a subcategory of some parent category, append parent's spec names to front
-				String parentCategory = sub.getString("subcategory_of");
-				if (parentCategory != null){
-					ResultSet parentSpecs = stmt.executeQuery("SELECT * FROM category WHERE name = \"" + parentCategory + "\"");
-					parentSpecs.next();
-					for (String spec : specsStrings){
-						if (parentSpecs.getString(spec) != null){
-							headers.add(parentSpecs.getString(spec));
-						}
-					}
-				}
+
 				ResultSet specNames = stmt.executeQuery("SELECT * FROM category WHERE name = \"" + category + "\"");
 				specNames.next();
 				for (String spec : specsStrings){

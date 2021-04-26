@@ -32,8 +32,13 @@ main {
 	Timestamp currTime = new java.sql.Timestamp((new java.util.Date()).getTime());
 	// Get win alerts
 	Alert.alertWins(user, currTime);
+	String style;
+	if (request.getParameter("alert") == null) style = "style=\"display: none\"";
+	else style = "";
 	%>
 	<main>
+
+		<div class="alert alert-danger" <%= style %> role="alert">Invalid Username or password...</div>
 		<div class="container">
 			<div class="card text-center mt-5">
 				<div class="card-body">

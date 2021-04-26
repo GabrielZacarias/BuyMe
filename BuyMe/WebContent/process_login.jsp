@@ -73,17 +73,9 @@ main {
 		</div> 
 	</main>
 <%} else { %>
-	<div class="alert alert-danger" role="alert">Invalid Username or password...</div>
-	<main>
-		<div class="d-flex flex-column container">
-			<div class="card text-center mt-5">
-				<div class="card-body">
-					<h1>Sorry!</h1>
-					<p><a href="login.jsp">Try again</a>
-				</div>
-			</div>
-		</div>
-	</main>
+	<jsp:forward page="login.jsp">
+		<jsp:param name="alert" value="Invalid username or password"/>
+	</jsp:forward>
 <%} %>
 
 <% db.closeConnection(con); %>

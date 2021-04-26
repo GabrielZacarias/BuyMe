@@ -13,7 +13,9 @@
 			<a class="nav-item nav-link" href="index.jsp">REP_Home</a>
 			<a class="nav-item nav-link" href="questions.jsp">Answer questions</a>
 			<a class="nav-item nav-link" href="edit_users.jsp">Delete user accounts</a>
-			<a class="nav-item nav-link" href="change_users.jsp">Edit a user's accounts</a>
+			<a class="nav-item nav-link" href="change_users.jsp">Edit a user's account</a>
+			<a class="nav-item nav-link" href="show_bids.jsp">View bids</a>
+			<a class="nav-item nav-link" href="show_auctions.jsp">View auctions</a>
 			<a class="nav-item nav-link" href="remove_bids.jsp">Remove a user's bid</a>
 			<a class="nav-item nav-link" href="remove_auctions.jsp">Remove an auction</a>
 			<a class="nav-item nav-link" href="logout.jsp">Logout</a>
@@ -25,7 +27,8 @@
 			<a class="nav-item nav-link" href="post_auction.jsp">List a new auction</a>
 			<a class="nav-item nav-link" href="user_dashboard.jsp">Dashboard</a>
 			<a class="nav-item nav-link" href="item_Interests.jsp">Item Interests</a>
-			<a class="nav-item nav-link" href="questions.jsp">Ask questions</a>
+			<a class="nav-item nav-link" href="questions.jsp">Browse Q/A and Ask questions</a>
+			<a class="nav-item nav-link" href="searchQuestions.jsp">Search questions</a>
 			<a class="nav-item nav-link" href="logout.jsp">Logout</a>
 	<%
 		} else { %>

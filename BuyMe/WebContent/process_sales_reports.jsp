@@ -95,7 +95,7 @@
 		    		<br><a href="sales_reports.jsp">Click here to generate more sales reports.</a>
 		    	<%	}
 		    	} else if (reportType.equals("earningsPerEndUser")) {
-		    		query = "SELECT email, sum(auto_bid_max) from(SELECT t1.email,t1.auto_bid_max FROM bids_on t1 INNER JOIN (SELECT `auction_id`, MAX(auto_bid_max) AS max_bid FROM bids_on GROUP BY `auction_id`) t2 ON t1.`auction_id` = t2.`auction_id` AND t1.auto_bid_max = t2.max_bid) as z GROUP BY email";
+		    		query = "SELECT user_email, max(amount) as max FROM bids_on b LEFT JOIN auction a on b.auction_id = a.auction_id group by b.auction_id ORDER BY max desc";
 		    		ps = conn.prepareStatement(query);
 		    		rs = ps.executeQuery();
 		    		if (rs.next()) { %>
@@ -107,8 +107,8 @@
 		    				</tr>
 		    		<%	do { %>
 		    				<tr>
-		    					<td><%= rs.getString("email") %></td>
-		    					<td><%= currency.format(rs.getDouble("SUM(auto_bid_max)")) %></td>
+		    					<td><%= rs.getString("user_email") %></td>
+		    					<td><%= currency.format(rs.getDouble("max")) %></td>
 		    				</tr>
 		    		<%	} while (rs.next()); %>
 		    		</table>

@@ -45,6 +45,8 @@
 			db.closeConnection(con);
 			e.printStackTrace();
 		}
+
+		response.sendRedirect("post_auction.jsp");
 		
 	%>
 </body>
