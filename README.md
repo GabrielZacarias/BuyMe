@@ -14,5 +14,3 @@ ask questions, filter auctions, and set wish list items.
 <img src="4.png" width ="650">
 
 <img src="5.png" width ="650">
-
-<img src="6.png" width ="650">
